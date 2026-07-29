@@ -1,0 +1,9 @@
+{
+  "extends": "@maven/tsconfig/base.json",
+  "include": [
+    "src"
+  ],
+  "compilerOptions": {
+    "outDir": "dist"
+  }
+}
