@@ -1,4 +1,4 @@
-import type { Source } from '@maven/ai-types';
+import type { Source } from './message.js';
 
 export function parseSourcesLine(line: string): Source[] | null {
   try {
