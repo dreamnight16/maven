@@ -1,5 +1,5 @@
 {
-  "extends": "@maven/tsconfig/base.json",
+  "extends": "@sixtdreamnight/tsconfig/base.json",
   "include": ["src"],
   "compilerOptions": { "outDir": "dist" }
 }

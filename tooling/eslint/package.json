@@ -1,5 +1,5 @@
 {
-  "name": "@maven/eslint-config",
+  "name": "@sixtdreamnight/eslint-config",
   "version": "0.0.0",
   "private": true,
   "main": "base.js",

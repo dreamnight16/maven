@@ -30,7 +30,7 @@ importers:
         specifier: ^2.4.0
         version: 2.6.1
     devDependencies:
-      '@maven/tsconfig':
+      '@sixtdreamnight/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/tsconfig
       '@types/node':
