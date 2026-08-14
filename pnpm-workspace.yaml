@@ -3,3 +3,25 @@ packages:
   - "tooling/*"
 allowBuilds:
   esbuild: true
+minimumReleaseAgeExclude:
+  - vite@5.0.5
+  - vite@5.0.12
+  - vite@5.0.13
+  - vite@5.1.8
+  - esbuild@0.24.3
+  - vite@5.4.12
+  - vite@5.4.15
+  - vite@5.4.18
+  - vite@5.4.19
+  - vite@5.4.17
+  - vite@5.4.20
+  - vite@5.4.16
+  - vite@6.4.2
+  - vitest@1.6.1
+  - vite@5.4.9
+  - esbuild@0.28.1
+  - vite@6.4.3
+  - js-yaml@3.15.1
+  - js-yaml@4.3.1
+  - nanoid@3.3.18
+  - vitest@3.2.6
