@@ -7,10 +7,20 @@ interface WebSearchOptions {
   provider?: 'brave' | 'duckduckgo';
 }
 
+export function resolveSearchProvider(
+  provider: 'brave' | 'duckduckgo',
+  braveApiKey: string | undefined
+): 'brave' | 'duckduckgo' {
+  if (provider === 'brave' && braveApiKey) {
+    return 'brave';
+  }
+  return 'duckduckgo';
+}
+
 export async function searchWeb(opts: WebSearchOptions): Promise<Source[]> {
   const { query, maxResults = 8, timeout = 8000, provider = 'duckduckgo' } = opts;
 
-  if (provider === 'brave' && process.env.BRAVE_API_KEY) {
+  if (resolveSearchProvider(provider, process.env.BRAVE_API_KEY) === 'brave') {
     return searchBrave(query, maxResults, timeout);
   }
   return searchDuckDuckGo(query, maxResults, timeout);
@@ -77,7 +87,7 @@ async function searchDuckDuckGo(
   }
 }
 
-function extractDuckDuckGoResults(html: string, maxResults: number): Source[] {
+export function extractDuckDuckGoResults(html: string, maxResults: number): Source[] {
   const results: Source[] = [];
   const linkRegex = /<a[^>]*class="result__a"[^>]*href="([^"]*)"[^>]*>([^<]*)<\/a>/gi;
   const snippetRegex = /<a[^>]*class="result__snippet"[^>]*>([\s\S]*?)<\/a>/gi;
