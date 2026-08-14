@@ -45,7 +45,8 @@ async function searchBrave(
         snippet: r.description ?? '',
       })
     );
-  } catch {
+  } catch (e) {
+    console.error('searchWeb: Brave search failed', e);
     return [];
   } finally {
     clearTimeout(timer);
@@ -68,7 +69,8 @@ async function searchDuckDuckGo(
     if (!res.ok) return [];
     const html = await res.text();
     return extractDuckDuckGoResults(html, maxResults);
-  } catch {
+  } catch (e) {
+    console.error('searchWeb: DuckDuckGo search failed', e);
     return [];
   } finally {
     clearTimeout(timer);

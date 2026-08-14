@@ -44,6 +44,7 @@ export function createDataStore<T extends { id: string }>(
         loaded = true;
       } catch (e) {
         error = e instanceof Error ? e.message : '数据加载失败';
+        loadPromise = null;
       }
     })();
 
@@ -56,7 +57,7 @@ export function createDataStore<T extends { id: string }>(
   }
 
   function getAll(): T[] {
-    return data;
+    return [...data];
   }
 
   function findById(id: string): T | undefined {
