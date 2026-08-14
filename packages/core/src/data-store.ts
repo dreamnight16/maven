@@ -1,6 +1,6 @@
 type Fetcher = (url: string) => Promise<{ ok: boolean; status: number; json: () => Promise<unknown> }>;
 
-interface DataStoreOptions<T> {
+interface DataStoreOptions {
   endpoint: string;
   fetch?: Fetcher;
 }
@@ -16,7 +16,7 @@ export interface DataStore<T> {
 }
 
 export function createDataStore<T extends { id: string }>(
-  opts: DataStoreOptions<T>
+  opts: DataStoreOptions
 ): DataStore<T> {
   const fetcher = opts.fetch ?? (globalThis as unknown as { fetch: Fetcher }).fetch;
   let data: T[] = [];
